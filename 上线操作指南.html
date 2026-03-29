@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIKLUKTECH.COM 上线操作指南</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f4f8; color: #1a2332; line-height: 1.7; }
+    .header { background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%); color: white; padding: 48px 40px; text-align: center; }
+    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .header p { color: #a0b4c8; font-size: 15px; }
+    .badge { display: inline-block; background: #f97316; color: white; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-left: 8px; vertical-align: middle; }
+    .container { max-width: 860px; margin: 0 auto; padding: 40px 20px; }
+    .overview { background: white; border-radius: 16px; padding: 28px 32px; margin-bottom: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 5px solid #0a1628; }
+    .overview h2 { font-size: 18px; color: #0a1628; margin-bottom: 16px; }
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .overview-item { background: #f8fafc; border-radius: 10px; padding: 14px 18px; }
+    .overview-item .label { font-size: 12px; color: #64748b; margin-bottom: 4px; }
+    .overview-item .value { font-size: 14px; font-weight: 600; color: #1a2332; }
+    .step-card { background: white; border-radius: 16px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .step-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e8f0f8; }
+    .step-num { width: 42px; height: 42px; background: linear-gradient(135deg, #0a1628, #1a3a5c); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+    .step-title { font-size: 18px; font-weight: 700; color: #0a1628; }
+    .step-subtitle { font-size: 13px; color: #64748b; margin-top: 2px; }
+    .tip-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #1e40af; }
+    .tip-box strong { display: block; margin-bottom: 4px; color: #1e3a8a; }
+    .warn-box { background: #fef9ec; border: 1px solid #fcd34d; border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #92400e; }
+    .warn-box strong { display: block; margin-bottom: 4px; }
+    .success-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 14px; color: #14532d; }
+    ol, ul { padding-left: 22px; }
+    ol li, ul li { margin-bottom: 10px; font-size: 14px; }
+    ol li strong, ul li strong { color: #0a1628; }
+    .code-block { background: #1e293b; color: #e2e8f0; border-radius: 10px; padding: 16px 20px; margin: 14px 0; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; }
+    .code-block .comment { color: #64748b; }
+    .code-block .key { color: #7dd3fc; }
+    .code-block .val { color: #86efac; }
+    .highlight { background: #fef3c7; padding: 2px 6px; border-radius: 4px; font-weight: 600; color: #92400e; }
+    .file-tree { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 2; }
+    .file-tree .folder { color: #f97316; font-weight: 600; }
+    .file-tree .file { color: #334155; }
+    .file-tree .important { color: #dc2626; font-weight: 600; }
+    .rec-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+    .rec-table th { background: #0a1628; color: white; padding: 10px 14px; text-align: left; }
+    .rec-table td { padding: 10px 14px; border-bottom: 1px solid #e8f0f8; vertical-align: top; }
+    .rec-table tr:nth-child(even) { background: #f8fafc; }
+    .rec-table .best { color: #15803d; font-weight: 600; }
+    .progress-steps { display: flex; gap: 0; margin: 20px 0; }
+    .progress-step { flex: 1; text-align: center; padding: 12px 8px; background: #f8fafc; border: 1px solid #e2e8f0; font-size: 12px; position: relative; }
+    .progress-step:not(:last-child)::after { content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); color: #94a3b8; z-index: 1; font-size: 16px; }
+    .progress-step .icon { font-size: 20px; display: block; margin-bottom: 4px; }
+    .progress-step .label { color: #64748b; }
+    .progress-step:first-child { border-radius: 8px 0 0 8px; }
+    .progress-step:last-child { border-radius: 0 8px 8px 0; }
+    .final-box { background: linear-gradient(135deg, #0a1628, #1a3a5c); color: white; border-radius: 16px; padding: 32px; text-align: center; margin-top: 32px; }
+    .final-box h2 { font-size: 22px; margin-bottom: 12px; }
+    .final-box p { color: #a0b4c8; font-size: 14px; line-height: 1.8; }
+    .final-box .url { font-size: 24px; font-weight: 700; color: #f97316; margin: 16px 0; letter-spacing: 1px; }
+    .tag { display: inline-block; background: rgba(249,115,22,0.15); color: #f97316; border: 1px solid rgba(249,115,22,0.3); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🚀 LIKLUKTECH.COM 上线操作指南</h1>
+    <p>虚拟主机部署 · 域名解析 · FTP 上传 · 全流程手册</p>
+  </div>
+
+  <div class="container">
+
+    <!-- 概览 -->
+    <div class="overview">
+      <h2>📋 部署概览</h2>
+      <div class="overview-grid">
+        <div class="overview-item">
+          <div class="label">网站文件包</div>
+          <div class="value">likluktech-website.zip（约174MB）</div>
+        </div>
+        <div class="overview-item">
+          <div class="label">文件包位置</div>
+          <div class="value">C:\Users\THINK09\WorkBuddy\20260329093252\</div>
+        </div>
+        <div class="overview-item">
+          <div class="label">目标域名</div>
+          <div class="value">LIKLUKTECH.COM</div>
+        </div>
+        <div class="overview-item">
+          <div class="label">网站类型</div>
+          <div class="value">纯静态 HTML（无需数据库）</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <div class="progress-steps">
+          <div class="progress-step"><span class="icon">🏠</span><span class="label">购买主机</span></div>
+          <div class="progress-step"><span class="icon">🔗</span><span class="label">绑定域名</span></div>
+          <div class="progress-step"><span class="icon">📡</span><span class="label">DNS解析</span></div>
+          <div class="progress-step"><span class="icon">📤</span><span class="label">上传文件</span></div>
+          <div class="progress-step"><span class="icon">🌐</span><span class="label">网站上线</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">购买虚拟主机 <span class="tag">如已购买可跳过</span></div>
+          <div class="step-subtitle">选择支持静态网站的空间，推荐以下方案</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; margin-bottom:14px; color:#475569;">由于您的网站是纯静态 HTML（无 PHP/数据库），任何虚拟主机都兼容。推荐以下几个性价比高的方案：</p>
+
+      <table class="rec-table">
+        <tr>
+          <th>服务商</th>
+          <th>推荐套餐</th>
+          <th>价格参考</th>
+          <th>特点</th>
+        </tr>
+        <tr>
+          <td><strong>腾讯云</strong><br>cloud.tencent.com</td>
+          <td>云虚拟主机 · 基础版</td>
+          <td>约 ¥88/年</td>
+          <td class="best">国内访问快，控制台简单，推荐 ✓</td>
+        </tr>
+        <tr>
+          <td><strong>阿里云</strong><br>aliyun.com</td>
+          <td>虚拟主机 · 经济型</td>
+          <td>约 ¥99/年</td>
+          <td>稳定可靠，适合外贸站</td>
+        </tr>
+        <tr>
+          <td><strong>SiteGround</strong><br>siteground.com</td>
+          <td>StartUp 方案</td>
+          <td>约 $3.99/月</td>
+          <td>海外访问速度更快，适合面向欧洲客户</td>
+        </tr>
+        <tr>
+          <td><strong>Hostinger</strong><br>hostinger.com</td>
+          <td>Premium Web Hosting</td>
+          <td>约 $2.99/月</td>
+          <td>性价比高，支持中文界面</td>
+        </tr>
+      </table>
+
+      <div class="tip-box">
+        <strong>💡 外贸网站建议</strong>
+        如果您的主要客户在欧洲、中东、北非，建议选择 <strong>海外主机（SiteGround/Hostinger）</strong>，访问速度更快，对 SEO 也有帮助。如果主要在国内管理，选腾讯云/阿里云更方便。
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">在主机控制台绑定域名</div>
+          <div class="step-subtitle">将 LIKLUKTECH.COM 绑定到您购买的主机空间</div>
+        </div>
+      </div>
+
+      <ol>
+        <li>登录您购买的主机控制台（cPanel / 腾讯云控制台 / 阿里云控制台）</li>
+        <li>找到 <strong>域名绑定</strong> 或 <strong>添加域名</strong> 选项</li>
+        <li>填入域名：<span class="highlight">likluktech.com</span>（和 <span class="highlight">www.likluktech.com</span>）</li>
+        <li>确认绑定，系统会给您一个 <strong>主机 IP 地址</strong>（形如 <code>123.45.67.89</code>），记下来备用</li>
+      </ol>
+
+      <div class="warn-box">
+        <strong>⚠️ 注意</strong>
+        绑定域名后，主机会给您分配一个 IP 地址（或 CNAME 地址），这是下一步 DNS 解析需要用到的关键信息。
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">设置 DNS 域名解析</div>
+          <div class="step-subtitle">在域名注册商处将域名指向主机 IP</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; margin-bottom:14px; color:#475569;">登录您购买域名的平台（GoDaddy / 阿里云 / 腾讯云 / Namecheap 等），进入 DNS 管理，添加以下解析记录：</p>
+
+      <div class="code-block">
+        <span class="comment"># A 记录 — 主域名解析（必须添加）</span><br>
+        <span class="key">类型（Type）：</span>  <span class="val">A</span><br>
+        <span class="key">主机名（Name）：</span> <span class="val">@</span>  （代表根域名 likluktech.com）<br>
+        <span class="key">值（Value）：</span>   <span class="val">填写主机给您的 IP 地址</span><br>
+        <span class="key">TTL：</span>          <span class="val">600（或默认值）</span><br>
+        <br>
+        <span class="comment"># A 记录 — www 子域名解析（建议添加）</span><br>
+        <span class="key">类型（Type）：</span>  <span class="val">A</span><br>
+        <span class="key">主机名（Name）：</span> <span class="val">www</span><br>
+        <span class="key">值（Value）：</span>   <span class="val">填写主机给您的 IP 地址（同上）</span><br>
+        <span class="key">TTL：</span>          <span class="val">600</span>
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 DNS 生效时间</strong>
+        DNS 解析一般需要 <strong>1～24 小时</strong>生效，全球扩散最长 48 小时。国内通常 10 分钟内即可生效。
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 如果主机给的是 CNAME 地址而非 IP</strong>
+        则添加 CNAME 记录：<br>
+        类型：CNAME · 主机名：@ 或 www · 值：主机提供的 CNAME 地址
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">上传网站文件</div>
+          <div class="step-subtitle">通过 FTP 或文件管理器将文件上传到主机</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; margin-bottom:16px; color:#475569;">有两种方式可以上传网站文件，选择您习惯的方式：</p>
+
+      <h3 style="font-size:15px; color:#0a1628; margin-bottom:10px;">方式一：使用文件管理器（最简单）</h3>
+      <ol>
+        <li>登录主机控制台，找到 <strong>文件管理器（File Manager）</strong></li>
+        <li>进入网站根目录（通常是 <strong>public_html</strong> 或 <strong>www</strong> 或 <strong>htdocs</strong> 文件夹）</li>
+        <li>点击 <strong>上传</strong>，上传整个 <code>likluktech-website.zip</code> 文件</li>
+        <li>上传完成后，在文件管理器中 <strong>解压</strong> 这个 ZIP 文件</li>
+        <li>确保 <code>index.html</code> 文件直接在根目录下（不要多一层文件夹）</li>
+      </ol>
+
+      <div class="warn-box">
+        <strong>⚠️ 重要：检查目录结构</strong>
+        解压后正确的结构应该是：
+      </div>
+
+      <div class="file-tree">
+        <span class="folder">public_html/</span>（主机根目录）<br>
+        &nbsp;&nbsp;├── <span class="important">index.html</span>（首页，必须在这里）<br>
+        &nbsp;&nbsp;├── products.html<br>
+        &nbsp;&nbsp;├── about.html<br>
+        &nbsp;&nbsp;├── contact.html<br>
+        &nbsp;&nbsp;├── style.css<br>
+        &nbsp;&nbsp;├── main.js<br>
+        &nbsp;&nbsp;└── <span class="folder">images/</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── transmission/（产品图片）<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── gearbox/（变速箱图片）<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── whatsapp-qr.jpg
+      </div>
+
+      <h3 style="font-size:15px; color:#0a1628; margin: 20px 0 10px;">方式二：使用 FTP 软件（推荐用 FileZilla）</h3>
+      <ol>
+        <li>下载安装 <strong>FileZilla</strong>（免费，官网 filezilla-project.org）</li>
+        <li>从主机控制台获取 FTP 账号信息（主机、端口、用户名、密码）</li>
+        <li>打开 FileZilla，在顶部输入 FTP 信息，点击 <strong>快速连接</strong></li>
+        <li>连接成功后，左侧是您的电脑，右侧是主机服务器</li>
+        <li>右侧进入 <strong>public_html</strong>（或 www）目录</li>
+        <li>左侧找到 <code>C:\Users\THINK09\WorkBuddy\20260329093252\likluktech\</code> 文件夹</li>
+        <li>选中 likluktech 文件夹里的所有文件，拖到右侧上传</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>💡 FileZilla FTP 填写示例</strong><br>
+        主机（Host）：ftp.likluktech.com 或主机 IP<br>
+        用户名：主机提供的 FTP 用户名<br>
+        密码：主机提供的 FTP 密码<br>
+        端口：21（默认）
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">验证上线</div>
+          <div class="step-subtitle">确认网站正常访问，检查各页面</div>
+        </div>
+      </div>
+
+      <ol>
+        <li>DNS 生效后，打开浏览器访问 <strong>http://www.likluktech.com</strong></li>
+        <li>检查首页是否正常显示（深海蓝背景、橙色 Logo）</li>
+        <li>点击 <strong>Products</strong> 页面，确认产品图片全部显示</li>
+        <li>点击 <strong>Contact</strong> 页面，确认 WhatsApp 二维码显示</li>
+        <li>测试询盘表单是否可以填写提交</li>
+        <li>在手机上打开，检查移动端显示效果</li>
+      </ol>
+
+      <div class="success-box">
+        ✅ 如果以上都正常，恭喜！您的外贸网站已经正式上线！
+      </div>
+    </div>
+
+    <!-- Step 6 可选 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-title">上线后建议做的事 <span class="tag">可选但重要</span></div>
+          <div class="step-subtitle">帮助网站被更多海外客户找到</div>
+        </div>
+      </div>
+
+      <ol>
+        <li>
+          <strong>配置 SSL 证书（HTTPS）</strong><br>
+          大多数主机提供免费的 Let's Encrypt 证书，在控制台一键安装。HTTPS 对 Google 排名很重要，外贸客户也更信任 HTTPS 网站。
+        </li>
+        <li>
+          <strong>提交 Google Search Console</strong><br>
+          访问 search.google.com/search-console，添加您的网站，提交 sitemap，让 Google 更快收录。
+        </li>
+        <li>
+          <strong>注册 Google Business</strong><br>
+          在 Google 商家档案上建立页面，有助于买家搜索时找到您。
+        </li>
+        <li>
+          <strong>配置 sales@likluktech.com 邮箱</strong><br>
+          在主机控制台创建企业邮箱账号，用于接收客户询盘更专业。
+        </li>
+        <li>
+          <strong>定期更新产品内容</strong><br>
+          网站内容越新鲜，搜索引擎排名越好。建议每月添加新产品或更新报价信息。
+        </li>
+      </ol>
+    </div>
+
+    <!-- 常见问题 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">?</div>
+        <div>
+          <div class="step-title">常见问题</div>
+          <div class="step-subtitle">遇到问题时参考</div>
+        </div>
+      </div>
+
+      <p style="font-size:14px; font-weight:600; color:#0a1628; margin-bottom:8px;">Q：域名解析了但网站打不开？</p>
+      <p style="font-size:14px; color:#475569; margin-bottom:16px;">A：DNS 需要等待 1-24 小时生效。可以用 dnschecker.org 查询解析是否已扩散。</p>
+
+      <p style="font-size:14px; font-weight:600; color:#0a1628; margin-bottom:8px;">Q：上传后打开首页是空白或 403 错误？</p>
+      <p style="font-size:14px; color:#475569; margin-bottom:16px;">A：检查 index.html 是否在 public_html 根目录，而不是子文件夹里。</p>
+
+      <p style="font-size:14px; font-weight:600; color:#0a1628; margin-bottom:8px;">Q：产品图片不显示？</p>
+      <p style="font-size:14px; color:#475569; margin-bottom:16px;">A：检查 images 文件夹是否完整上传，路径是否正确（images/transmission/xxx.png）。</p>
+
+      <p style="font-size:14px; font-weight:600; color:#0a1628; margin-bottom:8px;">Q：网站在手机上显示有问题？</p>
+      <p style="font-size:14px; color:#475569; margin-bottom:16px;">A：网站已做响应式设计，如有问题请截图发给我，我来调整代码。</p>
+
+      <p style="font-size:14px; font-weight:600; color:#0a1628; margin-bottom:8px;">Q：想修改网站内容怎么办？</p>
+      <p style="font-size:14px; color:#475569;">A：告诉我想改什么，我直接帮您修改 HTML 文件，然后只需重新上传修改过的文件即可。</p>
+    </div>
+
+    <!-- 结语 -->
+    <div class="final-box">
+      <h2>🎉 网站即将上线！</h2>
+      <div class="url">www.LIKLUKTECH.COM</div>
+      <p>网站文件包已准备好：<strong>likluktech-website.zip（174MB）</strong><br>
+      位置：C:\Users\THINK09\WorkBuddy\20260329093252\<br><br>
+      按照本指南完成上传，您的汽车配件外贸网站就会正式上线，<br>开始接收来自欧洲、北非、中东、南美的海外询盘。</p>
+    </div>
+
+  </div>
+</body>
+</html>
