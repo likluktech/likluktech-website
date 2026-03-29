@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Inquiry – LIKLUK Automotive Technology</title>
+  <meta name="description" content="Contact LIKLUK for auto parts inquiry. Email: sales@likluktech.com. Fast response within 24 hours. Serving Europe, North Africa, Middle East and South America." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">LK</span>
+      <div class="logo-text">
+        <span class="logo-name">LIKLUK</span>
+        <span class="logo-sub">AUTOMOTIVE TECHNOLOGY</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <a href="products.html" class="nav-link">Products <span class="nav-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="products.html#drivetrain">Drivetrain System</a>
+          <a href="products.html#engine">Engine System</a>
+          <a href="products.html#gearbox">Gearbox System</a>
+          <a href="products.html#chassis">Chassis System</a>
+          <a href="products.html#model">Model-Specific Parts</a>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn-inquiry">Get a Quote</a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="mobile-cta">Get a Quote</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero-content">
+    <span class="section-tag">Get In Touch</span>
+    <h1>Contact <span style="color:var(--accent)">Our Team</span></h1>
+    <p>Send us your inquiry and our export team will respond with pricing and availability within 24 hours.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact Info -->
+      <div>
+        <div class="contact-info">
+          <h3>How to Reach Us</h3>
+          <p>We welcome inquiries from importers, distributors, wholesalers, and trading companies worldwide. Provide us with your product requirements and we'll get back to you promptly.</p>
+
+          <div class="ci-item">
+            <div class="ci-icon">📧</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value"><a href="mailto:sales@likluktech.com">sales@likluktech.com</a></div>
+            </div>
+          </div>
+
+          <div class="ci-item">
+            <div class="ci-icon">🏢</div>
+            <div>
+              <div class="ci-label">Company</div>
+              <div class="ci-value">LIKLUK AUTOMOTIVE TECHNOLOGY CO., LTD<br /><span style="font-size:13px; color:var(--textl);">利客禄客（重庆）汽车科技有限公司</span></div>
+            </div>
+          </div>
+
+          <div class="ci-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">Chongqing, China</div>
+            </div>
+          </div>
+
+          <div class="ci-item">
+            <div class="ci-icon">⏱️</div>
+            <div>
+              <div class="ci-label">Response Time</div>
+              <div class="ci-value">Within 24 hours (Business Days)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp QR -->
+        <div class="wechat-qr" id="whatsapp">
+          <div class="qr-label">💬 WhatsApp Business</div>
+          <div class="qr-img-wrap">
+            <img src="images/whatsapp-qr.jpg" alt="WhatsApp QR Code – LIKLUK Auto Parts" />
+          </div>
+          <p style="font-size:12px; color:var(--textl); margin-top:12px; text-align:center;">Scan to chat directly on WhatsApp</p>
+        </div>
+
+        <!-- Tips -->
+        <div style="background:var(--off); border-radius:12px; padding:24px; margin-top:24px;">
+          <div style="font-family:var(--font-head); font-size:16px; font-weight:700; color:var(--navy); margin-bottom:12px;">💡 Tips for Faster Service</div>
+          <ul style="font-size:14px; color:var(--textl); line-height:2; padding-left:16px;">
+            <li>Include vehicle make, model & year</li>
+            <li>Provide OE/OEM part number if available</li>
+            <li>Specify quantity needed (MOQ)</li>
+            <li>Mention your country / destination port</li>
+            <li>Note any packaging preferences</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Inquiry Form -->
+      <div class="inquiry-form">
+        <h2 class="form-title">Send an Inquiry</h2>
+        <p class="form-subtitle">Fill in the form below and we'll get back to you within 24 hours.</p>
+
+        <form id="inquiryForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="john@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp / Phone</label>
+              <input type="text" id="whatsapp" name="whatsapp" placeholder="+1 555 000 0000" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Your Company Ltd." />
+            </div>
+            <div class="form-group">
+              <label for="country">Country *</label>
+              <select id="country" name="country" required>
+                <option value="">Select Country...</option>
+                <option>Germany</option>
+                <option>Spain</option>
+                <option>Italy</option>
+                <option>France</option>
+                <option>Poland</option>
+                <option>Romania</option>
+                <option>Morocco</option>
+                <option>Algeria</option>
+                <option>Tunisia</option>
+                <option>Egypt</option>
+                <option>UAE</option>
+                <option>Saudi Arabia</option>
+                <option>Iraq</option>
+                <option>Iran</option>
+                <option>Turkey</option>
+                <option>Brazil</option>
+                <option>Chile</option>
+                <option>Peru</option>
+                <option>Colombia</option>
+                <option>Mexico</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="productType">Product Category *</label>
+            <select id="productType" name="productType" required>
+              <option value="">Select Product System...</option>
+              <option>Drivetrain System (Clutch, Flywheel, Cylinder, Bearing)</option>
+              <option>Engine System (Assembly, Block, Head, Crankshaft, Alternator)</option>
+              <option>Gearbox System (Assembly, Gears, Housing)</option>
+              <option>Chassis System (Drive Shaft, Shock Absorber, Ball Joint)</option>
+              <option>Model-Specific Parts (Changan / Geely / Chery / Dongfeng / JAC)</option>
+              <option>Multiple Categories</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleInfo">Vehicle Information</label>
+            <input type="text" id="vehicleInfo" name="vehicleInfo" placeholder="e.g. Changan CS75, 2020, 1.5T engine" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Inquiry Details *</label>
+            <textarea id="message" name="message" placeholder="Please describe the parts you need: part name, OE/OEM number (if known), quantity required, and any other relevant details..." required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="submitBtn">
+            Send Inquiry →
+          </button>
+          <p class="form-note">By submitting, you agree to be contacted by our export team. We do not share your information with third parties.</p>
+        </form>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="successMsg" style="display:none; text-align:center; padding:40px 20px;">
+          <div style="font-size:56px; margin-bottom:16px;">✅</div>
+          <div style="font-family:var(--font-head); font-size:28px; font-weight:700; color:var(--navy); margin-bottom:8px;">Inquiry Sent!</div>
+          <p style="font-size:16px; color:var(--textl);">Thank you for your inquiry. Our export team will reply to <strong id="confirmEmail"></strong> within 24 hours.</p>
+          <a href="products.html" class="btn-primary" style="margin-top:24px; display:inline-flex;">Browse More Products</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Email direct CTA -->
+<section style="background:var(--off); padding:60px 0; border-top:1px solid var(--gray2);">
+  <div class="container" style="text-align:center;">
+    <p style="font-size:16px; color:var(--textl); margin-bottom:8px;">Prefer to reach us directly?</p>
+    <a href="mailto:sales@likluktech.com" style="font-family:var(--font-head); font-size:28px; font-weight:700; color:var(--accent); letter-spacing:1px;">sales@likluktech.com</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-mark">LK</span>
+          <div class="logo-text">
+            <span class="logo-name">LIKLUK</span>
+            <span class="logo-sub">AUTOMOTIVE TECHNOLOGY</span>
+          </div>
+        </div>
+        <p class="footer-about">Professional manufacturer and exporter of automotive parts. Serving global buyers since 2009 from Chongqing, China.</p>
+        <div class="footer-contact">
+          <a href="mailto:sales@likluktech.com">📧 sales@likluktech.com</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="products.html#drivetrain">Drivetrain System</a>
+        <a href="products.html#engine">Engine System</a>
+        <a href="products.html#gearbox">Gearbox System</a>
+        <a href="products.html#chassis">Chassis System</a>
+        <a href="products.html#model">Model-Specific Parts</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="about.html#quality">Quality Control</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:sales@likluktech.com">sales@likluktech.com</a>
+        <a href="contact.html" class="footer-inquiry-btn">Send Inquiry</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 LIKLUK Automotive Technology Co., Ltd. All rights reserved.</span>
+      <span>likluktech.com</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#whatsapp" class="whatsapp-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script src="main.js"></script>
+</body>
+</html>
